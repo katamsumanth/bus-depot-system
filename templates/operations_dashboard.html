@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Operations Staff Dashboard - Bus Depot Management System">
+  <title>Operations Dashboard | Bus Depot Management System</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25" />
+          </svg>
+        </div>
+        <div class="sidebar-brand">
+          <h2>DEPOT DISPATCH</h2>
+          <span>Operations Portal</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-item active" data-target="dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
+          <span>Dashboard</span>
+        </div>
+        <div class="nav-item" data-target="buses">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25" /></svg>
+          <span>Buses</span>
+        </div>
+        <div class="nav-item" data-target="drivers">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+          <span>Drivers</span>
+        </div>
+        <div class="nav-item" data-target="routes">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689A1.125 1.125 0 0 0 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" /></svg>
+          <span>Routes</span>
+        </div>
+        <div class="nav-item" data-target="trips">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+          <span>Trips</span>
+        </div>
+        <div class="nav-item" data-target="assignments">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" /></svg>
+          <span>Assignments</span>
+        </div>
+        <div class="nav-item" data-target="reports">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg>
+          <span>Reports</span>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-badge">
+          <div class="user-profile-info">
+            <div class="user-avatar" style="background: linear-gradient(135deg, #065f46 0%, #047857 100%);">{{ user.username[0]|upper }}</div>
+            <div class="user-names">
+              <h4>{{ user.username }}</h4>
+              <span>Operations Staff</span>
+            </div>
+          </div>
+          <button class="btn-logout-icon btn-logout" title="Sign Out">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" /></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Viewport -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <h1 id="pageTitle" class="page-title">Operations Dashboard</h1>
+          <span class="role-pill operations">OPERATIONS</span>
+        </div>
+        <div class="topbar-right">
+          <div id="liveClock" class="live-clock">--:--:--</div>
+          <button class="btn btn-secondary btn-sm btn-logout">Logout</button>
+        </div>
+      </header>
+
+      <div class="app-content">
+
+        <!-- ================= VIEW 1: OPERATIONS DASHBOARD ================= -->
+        <section id="view-dashboard" class="view-section active">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-info">
+                <h3>Available Buses</h3>
+                <div id="opsAvailBuses" class="metric-value">--</div>
+                <div class="metric-sub">Ready to Assign</div>
+              </div>
+              <div class="metric-icon-box icon-green">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-info">
+                <h3>Assigned Buses</h3>
+                <div id="opsAssignedBuses" class="metric-value">--</div>
+                <div class="metric-sub">In Service</div>
+              </div>
+              <div class="metric-icon-box icon-blue">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25" /></svg>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-info">
+                <h3>Available Drivers</h3>
+                <div id="opsAvailDrivers" class="metric-value">--</div>
+                <div class="metric-sub">Ready for Duty</div>
+              </div>
+              <div class="metric-icon-box icon-purple">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-info">
+                <h3>Today's Trips</h3>
+                <div id="opsTodayTrips" class="metric-value">--</div>
+                <div class="metric-sub">Total Dispatched</div>
+              </div>
+              <div class="metric-icon-box icon-yellow">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-info">
+                <h3>Active Trips</h3>
+                <div id="opsActiveTrips" class="metric-value">--</div>
+                <div class="metric-sub">Currently On Route</div>
+              </div>
+              <div class="metric-icon-box icon-green">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-info">
+                <h3>Pending Assignments</h3>
+                <div id="opsPendingAssign" class="metric-value">--</div>
+                <div class="metric-sub">Missing Bus or Driver</div>
+              </div>
+              <div class="metric-icon-box icon-red">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-header">
+              <h2 class="panel-title">Operations Quick Dispatch</h2>
+              <button class="btn btn-primary btn-sm" onclick="openCreateTripModal()">+ Dispatch New Trip</button>
+            </div>
+            <div style="padding: 1.5rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+              As an Operations Specialist, you control the daily dispatch and logistics:
+              <ul style="margin: 0.75rem 0 0 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.5rem;">
+                <li>🚌 Monitor Bus Availability &amp; Fleet Status</li>
+                <li>👨‍✈️ Check Driver Duty &amp; Roster Status</li>
+                <li>🎯 Assign Buses &amp; Drivers to Trips</li>
+                <li>⏱️ Transition Trip Life-cycles (In Progress &rarr; Completed)</li>
+                <li>🔄 Automatic Resource De-allocation upon Trip Completion</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 2: BUSES OPERATIONS ================= -->
+        <section id="view-buses" class="view-section">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h2 class="panel-title">Fleet Availability &amp; Operations</h2>
+              <div class="panel-actions">
+                <div class="search-input-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+                  <input type="text" id="searchOpsBuses" class="form-control" placeholder="Search buses...">
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Bus #</th>
+                    <th>Registration</th>
+                    <th>Type &amp; Capacity</th>
+                    <th>Current Status</th>
+                    <th>Maintenance</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="opsBusesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 3: DRIVER OPERATIONS ================= -->
+        <section id="view-drivers" class="view-section">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h2 class="panel-title">Driver Roster &amp; Duty Status</h2>
+              <div class="panel-actions">
+                <div class="search-input-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+                  <input type="text" id="searchOpsDrivers" class="form-control" placeholder="Search drivers...">
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Driver Code</th>
+                    <th>Full Name</th>
+                    <th>Contact Phone</th>
+                    <th>License Number</th>
+                    <th>Duty Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="opsDriversTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 4: ROUTE OPERATIONS ================= -->
+        <section id="view-routes" class="view-section">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h2 class="panel-title">Active Routes &amp; Terminals</h2>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Route Code</th>
+                    <th>Source Terminal</th>
+                    <th>Destination</th>
+                    <th>Intermediate Waypoints</th>
+                    <th>Route Status</th>
+                  </tr>
+                </thead>
+                <tbody id="opsRoutesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 5: TRIPS DISPATCH ================= -->
+        <section id="view-trips" class="view-section">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h2 class="panel-title">Trip Scheduling &amp; Status Controls</h2>
+              <div class="panel-actions">
+                <button class="btn btn-primary btn-sm" onclick="openCreateTripModal()">+ Dispatch New Trip</button>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Trip ID</th>
+                    <th>Route Details</th>
+                    <th>Assigned Bus</th>
+                    <th>Assigned Driver</th>
+                    <th>Timetable</th>
+                    <th>Status</th>
+                    <th>Operations</th>
+                  </tr>
+                </thead>
+                <tbody id="opsTripsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 6: ASSIGNMENTS ================= -->
+        <section id="view-assignments" class="view-section">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h2 class="panel-title">Fleet &amp; Driver Assignment History</h2>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Assignment ID</th>
+                    <th>Bus Assigned</th>
+                    <th>Driver Assigned</th>
+                    <th>Operational Notes</th>
+                    <th>Assignment Status</th>
+                    <th>Assigned Date</th>
+                  </tr>
+                </thead>
+                <tbody id="opsAssignmentsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= VIEW 7: REPORTS ================= -->
+        <section id="view-reports" class="view-section">
+          <div class="reports-grid">
+            <div class="report-card">
+              <h3>Fleet Status</h3>
+              <div id="opsRepBusStatus"></div>
+            </div>
+            <div class="report-card">
+              <h3>Driver Duty Distribution</h3>
+              <div id="opsRepDriverStatus"></div>
+            </div>
+            <div class="report-card">
+              <h3>Trip Status Breakdown</h3>
+              <div id="opsRepTripStatus"></div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODALS -->
+  <!-- Change Bus Status Modal -->
+  <div id="modalOpsBusStatus" class="modal-backdrop">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Update Operational Status: <span id="opsBusNumberSpan" style="color: #60a5fa;"></span></h3>
+        <button type="button" class="modal-close">&times;</button>
+      </div>
+      <form id="opsBusStatusForm">
+        <div class="modal-body">
+          <input type="hidden" id="opsBusStatusId">
+          <div class="form-group">
+            <label class="form-label" for="opsBusStatusSelect">Operational Status</label>
+            <select id="opsBusStatusSelect" class="form-control">
+              <option value="Available">Available</option>
+              <option value="Assigned">Assigned</option>
+              <option value="On Route">On Route</option>
+              <option value="Out of Service">Out of Service</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="opsBusMaintSelect">Maintenance Status</label>
+            <select id="opsBusMaintSelect" class="form-control">
+              <option value="Good">Good</option>
+              <option value="Due for Service">Due for Service</option>
+              <option value="Under Maintenance">Under Maintenance</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modalOpsBusStatus')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Update Bus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Change Driver Status Modal -->
+  <div id="modalOpsDriverStatus" class="modal-backdrop">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Update Driver Duty: <span id="opsDriverNameSpan" style="color: #34d399;"></span></h3>
+        <button type="button" class="modal-close">&times;</button>
+      </div>
+      <form id="opsDriverStatusForm">
+        <div class="modal-body">
+          <input type="hidden" id="opsDriverStatusId">
+          <div class="form-group">
+            <label class="form-label" for="opsDriverStatusSelect">Duty Status</label>
+            <select id="opsDriverStatusSelect" class="form-control">
+              <option value="Active">Active (Ready for duty)</option>
+              <option value="On Duty">On Duty</option>
+              <option value="Off Duty">Off Duty</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modalOpsDriverStatus')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Duty Status</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Create/Edit Trip Modal -->
+  <div id="modalOpsTrip" class="modal-backdrop">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="opsTripModalTitle">Dispatch / Create Trip</h3>
+        <button type="button" class="modal-close">&times;</button>
+      </div>
+      <form id="opsTripForm">
+        <div class="modal-body">
+          <input type="hidden" id="opsTripId">
+          <div class="form-group">
+            <label class="form-label" for="opsTripRoute">Transit Route</label>
+            <select id="opsTripRoute" class="form-control" required></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="opsTripBus">Select Bus</label>
+            <select id="opsTripBus" class="form-control"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="opsTripDriver">Select Driver</label>
+            <select id="opsTripDriver" class="form-control"></select>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="opsTripDep">Departure Time</label>
+              <input type="text" id="opsTripDep" class="form-control" placeholder="09:00 AM" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="opsTripArr">Arrival Time</label>
+              <input type="text" id="opsTripArr" class="form-control" placeholder="10:30 AM" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modalOpsTrip')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Dispatch</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="/static/js/operations.js"></script>
+</body>
+</html>
